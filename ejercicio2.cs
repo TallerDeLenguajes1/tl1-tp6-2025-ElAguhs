@@ -235,8 +235,7 @@ do
 
 Console.WriteLine("Muchas gracias por utilizar esta calculadora");
 
-
-
+minijuego();
 
 
 
@@ -341,5 +340,52 @@ void parteEntera(float d)
 
     Console.Write("El entero del numero float es: ");
     Console.WriteLine(entero);
+
+}
+
+void minijuego()
+{
+    Console.WriteLine("-------------------------------------");
+    Console.WriteLine("Ahora vamos a hacer un minijuego, ingrese dos numeros y le diré cual es el mas grande (los numeros deben ser validos)");
+
+
+    int e, f;
+
+    bool confirmar, confirmar2;
+
+    string dato1, dato2;
+
+    do
+    {
+        dato1 = Console.ReadLine();
+
+        confirmar = int.TryParse(dato1, out e);
+
+    } while (!confirmar);
+
+    do
+    {
+
+        dato2 = Console.ReadLine();
+
+        confirmar2 = int.TryParse(dato2, out f);
+
+    } while (!confirmar2);
+
+    if (e > f)
+    {
+        Console.Write("El numero mas grande es: ");
+        Console.WriteLine(e);
+
+    }
+    else if (f > e)
+    {
+        Console.Write("El numero mas grande es: ");
+        Console.WriteLine(f);
+    }
+    else if (f == e)
+    {
+        Console.WriteLine("Los dos son iguales, no hay uno mayor");
+    }
 
 }
