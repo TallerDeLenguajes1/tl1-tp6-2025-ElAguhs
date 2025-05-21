@@ -14,75 +14,106 @@ bool control = int.TryParse(opcion, out numero);
 
 if (control)
 {
+    ConsoleKeyInfo tecla;
+    ConsoleKeyInfo tecla2;
 
-    Console.WriteLine("Ingrese el primer valor");
-
-    string num1 = Console.ReadLine();
-
-    float a;
-
-    bool control2 = float.TryParse(num1, out a);
-
-    Console.WriteLine("Ingrese el segundo valor");
-
-    string num2 = Console.ReadLine();
-
-    float b;
-
-    bool control3 = float.TryParse(num2, out b);
-
-    while (!control2 || !control3)
+    do
     {
 
-        if (!control2)
+
+
+
+        Console.WriteLine("Ingrese el primer valor");
+
+        string num1 = Console.ReadLine();
+
+        float a;
+
+        bool control2 = float.TryParse(num1, out a);
+
+        Console.WriteLine("Ingrese el segundo valor");
+
+        string num2 = Console.ReadLine();
+
+        float b;
+
+        bool control3 = float.TryParse(num2, out b);
+
+        while (!control2 || !control3)
         {
-            Console.WriteLine("Ingrese el primer valor denuevo");
 
-            num1 = Console.ReadLine();
+            if (!control2)
+            {
+                Console.WriteLine("Ingrese el primer valor denuevo");
 
-            control2 = float.TryParse(num1, out a);
+                num1 = Console.ReadLine();
+
+                control2 = float.TryParse(num1, out a);
+
+            }
+            else if (!control3)
+            {
+                Console.WriteLine("Ingrese el segundo valor denuevo");
+
+                num2 = Console.ReadLine();
+
+                control3 = float.TryParse(num2, out b);
+            }
 
         }
-        else if (!control3)
+
+
+
+        do
         {
-            Console.WriteLine("Ingrese el segundo valor denuevo");
 
-            num2 = Console.ReadLine();
+            switch (numero)
+            {
+                case 1:
 
-            control3 = float.TryParse(num2, out b);
-        }
+                    suma(a, b);
 
-    }
+                    break;
 
+                case 2:
 
-    switch (numero)
-    {
-        case 1:
+                    resta(a, b);
 
-            suma(a, b);
+                    break;
 
-            break;
+                case 3:
 
-        case 2:
+                    multiplicacion(a, b);
 
-            resta(a, b);
+                    break;
 
-            break;
+                case 4:
 
-        case 3:
+                    division(a, b);
 
-            multiplicacion(a, b);
-
-            break;
-
-        case 4:
-
-            division(a, b);
-
-            break;
+                    break;
 
 
-    }
+            }
+
+            Console.WriteLine("Desea realizar otra operacion con los mismos numeros?");
+            Console.WriteLine("Presione la letra 's' o 'n' si quiere o no quiere respectivamente");
+            tecla = Console.ReadKey(true);
+
+        } while (tecla.Key == ConsoleKey.S);
+
+        Console.WriteLine("desea realizar la operacion con otros numeros?");
+        Console.WriteLine("Presione la letra 's' o 'n' si quiere o no quiere respectivamente");
+        tecla2 = Console.ReadKey(true);
+
+    } while (tecla2.Key == ConsoleKey.S);
+
+    Console.WriteLine("Muchas gracias por utilizar esta calculadora");
+
+
+
+
+
 
 }
 else
@@ -127,9 +158,3 @@ void division(float a, float b)
     Console.WriteLine(total);
 
 }
-
-
-
-
-
-
