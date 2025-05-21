@@ -15,31 +15,69 @@ bool control = int.TryParse(opcion, out numero);
 if (control)
 {
 
-   
+    Console.WriteLine("Ingrese el primer valor");
+
+    string num1 = Console.ReadLine();
+
+    float a;
+
+    bool control2 = float.TryParse(num1, out a);
+
+    Console.WriteLine("Ingrese el segundo valor");
+
+    string num2 = Console.ReadLine();
+
+    float b;
+
+    bool control3 = float.TryParse(num2, out b);
+
+    while (!control2 || !control3)
+    {
+
+        if (!control2)
+        {
+            Console.WriteLine("Ingrese el primer valor denuevo");
+
+            num1 = Console.ReadLine();
+
+            control2 = float.TryParse(num1, out a);
+
+        }
+        else if (!control3)
+        {
+            Console.WriteLine("Ingrese el segundo valor denuevo");
+
+            num2 = Console.ReadLine();
+
+            control3 = float.TryParse(num2, out b);
+        }
+
+    }
+
 
     switch (numero)
     {
         case 1:
 
-            float total_suma = suma();
+            suma(a, b);
 
             break;
 
         case 2:
 
-            float total_resta = restar();
+            resta(a, b);
 
             break;
 
         case 3:
 
-            float total_multiplicacion = Multiplicar();
+            multiplicacion(a, b);
 
             break;
 
         case 4:
 
-            float total_division = dividir();
+            division(a, b);
 
             break;
 
@@ -54,26 +92,44 @@ else
 
 
 
-float suma()
+void suma(float a, float b)
 {
+    float total = a + b;
 
+    Console.Write("La suma es:");
+    Console.WriteLine(total);
 
-
-    return (a + b);
 }
 
-float restar()
+void resta(float a, float b)
 {
-    return (a - b);
+    float total = a - b;
+
+    Console.Write("La suma es:");
+    Console.WriteLine(total);
+
 }
 
-float Multiplicar()
+void multiplicacion(float a, float b)
 {
-    return (a * b);
+    float total = a * b;
+
+    Console.Write("La suma es:");
+    Console.WriteLine(total);
+
 }
 
-float dividir()
+void division(float a, float b)
 {
-    return (a / b);
+    float total = a / b;
+
+    Console.Write("La suma es:");
+    Console.WriteLine(total);
+
 }
+
+
+
+
+
 
