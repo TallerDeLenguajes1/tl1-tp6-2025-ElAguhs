@@ -136,7 +136,7 @@ void resta(float a, float b)
 {
     float total = a - b;
 
-    Console.Write("La suma es:");
+    Console.Write("La resta es:");
     Console.WriteLine(total);
 
 }
@@ -145,16 +145,22 @@ void multiplicacion(float a, float b)
 {
     float total = a * b;
 
-    Console.Write("La suma es:");
+    Console.Write("La resta es:");
     Console.WriteLine(total);
 
 }
 
 void division(float a, float b)
 {
+
+    if (b == 0)
+    {
+        Console.WriteLine("no se puede dividir por 0");
+        return;
+    }
     float total = a / b;
 
-    Console.Write("La suma es:");
+    Console.Write("La resta es:");
     Console.WriteLine(total);
 
 }
