@@ -321,7 +321,7 @@ void suma(float a, float b)
 
     string textoNumero = total.ToString();
 
-    string textito = "la suma es: ";
+    string textito = "la suma entre " + a + " y " + b + " es: ";
 
     string respuesta = string.Concat(textito, textoNumero);
 
@@ -333,8 +333,13 @@ void resta(float a, float b)
 {
     float total = a - b;
 
-    Console.Write("La resta es:");
-    Console.WriteLine(total);
+    string textoNumero = total.ToString();
+
+    string textito = "la resta entre " + a + " y " + b + " es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 
 }
 
@@ -342,8 +347,13 @@ void multiplicacion(float a, float b)
 {
     float total = a * b;
 
-    Console.Write("La multiplicacion es:");
-    Console.WriteLine(total);
+    string textoNumero = total.ToString();
+
+    string textito = "la multiplicacion entre " + a + " y " + b + " es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 
 }
 
@@ -357,8 +367,13 @@ void division(float a, float b)
     }
     float total = a / b;
 
-    Console.Write("La division es:");
-    Console.WriteLine(total);
+    string textoNumero = total.ToString();
+
+    string textito = "la division entre " + a + " y " + b + " es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 
 }
 
@@ -367,16 +382,26 @@ void valorAbsoluto(float c)
 
     float resultado = Math.Abs(c);
 
-    Console.Write("El valor absoluto del numero es ");
-    Console.WriteLine(resultado);
+    string textoNumero = resultado.ToString();
+
+    string textito = "el valor absoluto de " + c + " es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 }
 
 void cuadrado(float c)
 {
-    c *= c;
+    float resultado = c * c;
 
-    Console.Write("El cuadrado del numero es ");
-    Console.WriteLine(c);
+    string textoNumero = resultado.ToString();
+
+    string textito = "el cuadrado de " + c + " es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 }
 
 void raizCuadrada(float c)
@@ -390,8 +415,14 @@ void raizCuadrada(float c)
 
     double resultado = Math.Sqrt(c);
 
-    Console.Write("La raiz cuadrada de un numero es: ");
-    Console.WriteLine(resultado);
+    string textoNumero = resultado.ToString("F2");
+
+    string textito = "la raiz cuadrada de " + c + " es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
+
 }
 
 
@@ -400,8 +431,13 @@ void seno(float c)
 
     double resultado = Math.Sin(c);
 
-    Console.Write("El seno de un numero es: ");
-    Console.WriteLine(resultado);
+    string textoNumero = resultado.ToString("F2");
+
+    string textito = "el seno de " + c + " (radianes) es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 
 }
 
@@ -409,8 +445,13 @@ void coseno(float c)
 {
     double resultado = Math.Cos(c);
 
-    Console.Write("El coseno de un numero es: ");
-    Console.WriteLine(resultado);
+    string textoNumero = resultado.ToString("F2");
+
+    string textito = "la coseno de " + c + " (radianes) es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 }
 
 void parteEntera(float d)
@@ -418,8 +459,13 @@ void parteEntera(float d)
 
     int entero = (int)d;
 
-    Console.Write("El entero del numero float es: ");
-    Console.WriteLine(entero);
+    string textoNumero = entero.ToString();
+
+    string textito = "la la parte entera del float " + d + " es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 
 }
 
