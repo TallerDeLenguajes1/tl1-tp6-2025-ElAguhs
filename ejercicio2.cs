@@ -1,3 +1,4 @@
+
 bool incorrecta;
 ConsoleKeyInfo tecla;
 ConsoleKeyInfo tecla2;
@@ -40,7 +41,7 @@ do
     if (control && incorrecta)
     {
 
-        if (numero > 4)
+        if (numero >= 5 && numero <= 9)
         {
             bool control4;
             float c;
@@ -97,6 +98,26 @@ do
                 Console.WriteLine("Desea realizar otra operacion con los mismos numeros?");
                 Console.WriteLine("Presione la letra 's' o 'n' si quiere o no quiere respectivamente");
                 tecla = Console.ReadKey(true);
+                if (tecla.Key == ConsoleKey.S)
+                {
+
+                    Console.WriteLine("¿Qué operación desea realizar?");
+
+                    Console.WriteLine("5-Valor absoluto, 6-cuadrado, 7-raiz cuadrada, 8-seno, 9-coseno");
+
+                    opcion = Console.ReadLine();
+
+                    control = int.TryParse(opcion, out numero);
+
+                    while (!control || numero < 5 || numero > 9)
+                    {
+                        Console.WriteLine("Opción inválida, vuelva a intentarlo:");
+                        opcion = Console.ReadLine();
+                        control = int.TryParse(opcion, out numero);
+                    }
+                }
+
+
 
             } while (tecla.Key == ConsoleKey.S);
 
@@ -205,6 +226,24 @@ do
                 Console.WriteLine("Desea realizar otra operacion con los mismos numeros?");
                 Console.WriteLine("Presione la letra 's' o 'n' si quiere o no quiere respectivamente");
                 tecla = Console.ReadKey(true);
+                if (tecla.Key == ConsoleKey.S)
+                {
+
+                    Console.WriteLine("¿Qué operación desea realizar?");
+
+                    Console.WriteLine("1-Suma, 2-Resta, 3-Multiplicación, 4-División");
+
+                    opcion = Console.ReadLine();
+
+                    control = int.TryParse(opcion, out numero);
+
+                    while (!control || numero < 1 || numero > 4)
+                    {
+                        Console.WriteLine("Opción inválida, vuelva a intentarlo:");
+                        opcion = Console.ReadLine();
+                        control = int.TryParse(opcion, out numero);
+                    }
+                }
 
             } while (tecla.Key == ConsoleKey.S);
 
@@ -244,8 +283,13 @@ void suma(float a, float b)
 {
     float total = a + b;
 
-    Console.Write("La suma es:");
-    Console.WriteLine(total);
+    string textoNumero = total.ToString();
+
+    string textito = "la suma es: ";
+
+    string respuesta = string.Concat(textito, textoNumero);
+
+    Console.WriteLine(respuesta);
 
 }
 
