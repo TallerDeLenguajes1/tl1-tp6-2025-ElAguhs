@@ -1,1 +1,5 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/24pP-Pw_)
+String es una tipo por referencia, ya que la string es un alias de System.String, que es una clase, y en C#, las clases son por tipo referencia.
+Eso quiere decir que cuando pasás un string como parámetro a un método, lo que se pasa es una referencia (puntero) al objeto en memoria, no una copia.
+Pero tambien puede interpretarse como tipo por valor ya que aunque sea un tipo por referencia, no podés modificar su contenido una vez creado.
+
+
