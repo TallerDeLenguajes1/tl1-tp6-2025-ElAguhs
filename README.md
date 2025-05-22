@@ -31,3 +31,8 @@ Pero tambien puede interpretarse como tipo por valor ya que aunque sea un tipo p
 \xXX : carácter Unicode en formato hexadecimal corto.
 
 Estas secuencias son utilizadas comúnmente para dar formato a los textos o insertar caracteres especiales que no pueden escribirse directamente.
+
+3- En C#, los caracteres @ y $ pueden colocarse delante de una cadena de texto para modificar su comportamiento. Cuando se utilizan juntos @$ o $@, se combinan sus funcionalidades:
+El símbolo @ convierte a la cadena en una cadena literal, donde los caracteres de escape no se interpretan (por ejemplo, \n se trata como texto plano).
+El símbolo $ permite utilizar interpolación de cadenas, es decir, insertar el valor de variables o expresiones directamente dentro del texto utilizando llaves {}.
+Cuando se usan ambos, se obtiene una cadena interpolada y literal, permitiendo insertar variables sin preocuparse por caracteres de escape o por escribir dobles barras invertidas.
