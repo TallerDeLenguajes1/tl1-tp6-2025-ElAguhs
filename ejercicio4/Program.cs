@@ -1,4 +1,6 @@
 ﻿
+using System.Reflection.Metadata;
+
 Console.Write("Ingrese la 1ra cadena de texto: ");
 string texto = Console.ReadLine();
 
@@ -33,6 +35,140 @@ do
 string subcadena = completo.Substring(posicion);
 
 Console.WriteLine(subcadena);
+
+Console.WriteLine("mostrando el contenido de la cadena concatenada caracter por caracter: ");
+
+foreach (char caracter in completo)
+{
+    Console.WriteLine(caracter);
+}
+
+Console.WriteLine("que palabra deseas saber cuantas veces aparece");
+
+string buscar = Console.ReadLine();
+
+string textoMinuscula = completo.ToLower();
+
+string palabraMinuscula = buscar.ToLower();
+
+int index = textoMinuscula.IndexOf(palabraMinuscula);
+
+int contador = 0;
+
+while (index != -1)
+{
+
+    contador++;
+
+    index = textoMinuscula.IndexOf(palabraMinuscula, index + palabraMinuscula.Length);
+
+
+}
+
+if (contador == 0)
+{
+    Console.WriteLine("No se ha encontrado ninguna palabra asi en la string :/");
+}
+else
+{
+    Console.WriteLine("La palabra aparece " + contador + " veces en el texto");
+
+}
+
+Console.WriteLine("el texto en minuscula: " + textoMinuscula);
+string textoMayuscula = completo.ToUpper();
+Console.WriteLine("el texto en mayuscula: " + textoMayuscula);
+
+Console.WriteLine("Ingrese el caracter con el que desea separar la cadena.");
+string separador = Console.ReadLine();
+string[] resultado = completo.Split(separador);
+foreach (string r in resultado)
+{
+    Console.WriteLine(r);
+
+}
+
+ConsoleKeyInfo confirmar_operacion_simple;
+
+do
+{
+
+
+
+    Console.WriteLine("Ingrese la operacion que desea realizar ej: 582+123");
+
+    string operacion = Console.ReadLine();
+
+    char[] separador_operacion = { '+', '-', '*', '/' };
+
+    string[] numeros_separados = operacion.Split(separador_operacion);
+
+    if (numeros_separados.Length != 2)
+    {
+        Console.WriteLine("porfavor ingrese una operacion simple con 2 numeros enteros y 1 operador");
+        return;
+    }
+
+    char operador_utilizado = '\0';
+
+    foreach (char op in separador_operacion)
+    {
+        if (operacion.Contains(op))
+        {
+            operador_utilizado = op;
+            break;
+        }
+    }
+
+    int num1_convertido, num2_convertido;
+
+    if (!int.TryParse(numeros_separados[0], out num1_convertido) || !int.TryParse(numeros_separados[1], out num2_convertido))
+    {
+
+        Console.WriteLine("Error al convertir los números.");
+        return;
+    }
+
+    if (operador_utilizado == '\0')
+    {
+        Console.WriteLine("No se encontró un operador válido.");
+        return;
+    }
+
+    switch (operador_utilizado)
+    {
+        case '+':
+            suma(num1_convertido, num2_convertido);
+            break;
+        case '-':
+            resta(num1_convertido, num2_convertido);
+            break;
+        case '*':
+            multiplicacion(num1_convertido, num2_convertido);
+            break;
+        case '/':
+            if (num2_convertido == 0)
+            {
+                Console.WriteLine("Error: división por cero.");
+                return;
+            }
+            division(num1_convertido, num2_convertido);
+            break;
+        default:
+            Console.WriteLine("Operador no válido.");
+            return;
+    }
+
+    Console.WriteLine("desea hacer otra operacion simple con 2 numeros?");
+    Console.WriteLine("Ingrese el caracter s/n si quiere o no quiere respectivamente");
+
+    confirmar_operacion_simple = Console.ReadKey(true);
+
+} while (confirmar_operacion_simple.Key == ConsoleKey.S);
+
+Console.WriteLine("Apriete cualquier tecla para continuar a la calculadora");
+
+ConsoleKeyInfo confirmar = Console.ReadKey(true);
 
 
 bool incorrecta;
